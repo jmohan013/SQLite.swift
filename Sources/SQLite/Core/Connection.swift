@@ -436,13 +436,13 @@ public final class Connection {
     ///   with the compiled SQL as its argument.
     ///
     ///       db.trace { SQL in print(SQL) }
-    public func trace(_ callback: ((String) -> Void)?) {
+    /*public func trace(_ callback: ((String) -> Void)?) {
         if #available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
             trace_v2(callback)
         } else {
             trace_v1(callback)
         }
-    }
+    }*/
 
     @available(OSX, deprecated: 10.12)
     @available(iOS, deprecated: 10.0)
@@ -467,7 +467,7 @@ public final class Connection {
         trace = box
     }
 
-    @available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *)
+    /*@available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *)
     fileprivate func trace_v2(_ callback: ((String) -> Void)?) {
         guard let callback = callback else {
             // If the X callback is NULL or if the M mask is zero, then tracing is disabled.
@@ -496,7 +496,7 @@ public final class Connection {
         )
         trace = box
     }
-
+    */
     fileprivate typealias Trace = @convention(block) (UnsafeRawPointer) -> Void
     fileprivate var trace: Trace?
 
